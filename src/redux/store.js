@@ -13,6 +13,7 @@ import thunk from "redux-thunk";
 import storage from "redux-persist/lib/storage";
 import authReducer from "./Slices/authSlice";
 import courseReducer from "./Slices/coursesSlice"
+import { authApi } from "./apis/authApi";
 
 const persistConfig = {
   key: "root",
@@ -27,6 +28,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     course: courseReducer,
+    [authApi.reducerPath]: authApi.reducer,
     middleware: [thunk],
 
     serializableCheck: {
