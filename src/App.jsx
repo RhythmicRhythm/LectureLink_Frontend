@@ -31,7 +31,6 @@ import Assignment from "./pages/Assignment";
 axios.defaults.withCredentials = true;
 
 function App() {
-  const location = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -65,7 +64,7 @@ function App() {
         }}
       />
       <Routes>
-        <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/" element={<Signin />} />
         {/* AUTH ROUTES */}
         <Route exact path="/signup" element={<Signup />} />
         <Route exact path="/signin" element={<Signin />} />

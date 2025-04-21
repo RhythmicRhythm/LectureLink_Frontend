@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import { signupSchema } from "../../schemas";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,8 +8,6 @@ import auth1 from "../../images/auth1.png";
 import logo from "../../images/Logo.png";
 import Load from "../../images/load.gif";
 import toast from "react-hot-toast";
-import axios from "axios";
-import { BACKEND_URL } from "../../services/authService";
 import { signup } from "../../redux/Slices/authSlice";
 
 const initialValues = {
