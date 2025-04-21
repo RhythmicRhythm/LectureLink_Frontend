@@ -5,7 +5,7 @@ import axios from "axios";
 import "./css/style.css";
 
 // Import pages
-// import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 // import Course from "./pages/Course";
 // import History from "./pages/History";
 // import Verifycode from "./pages/auth/VerifyCode";
@@ -74,8 +74,8 @@ function App() {
         <Route exact path="/verifycode/:email" element={<Verifycode />} /> */}
 
         {/* DASHBOARD ROUTES  */}
-        {/* <Route exact path="/dashboard/home" element={<Dashboard />} />
-        <Route exact path="/courses" element={<History />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        {/* <Route exact path="/courses" element={<History />} />
         <Route exact path="/courses/:id" element={<Course />} />
         <Route exact path="/uploadfile/:id" element={<Uploadfile />} />
         <Route exact path="/newcourse" element={<NewCourse />} />

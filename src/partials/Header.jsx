@@ -1,48 +1,60 @@
 import React, { useState } from "react";
-
-import SearchModal from "../components/ModalSearch";
-import Notifications from "../components/DropdownNotifications";
-import Help from "../components/DropdownHelp";
-import UserMenu from "../components/DropdownProfile";
-import ThemeToggle from "../components/ThemeToggle";
-
-import { RiMenu4Fill } from "react-icons/ri";
+import {
+  RiMenu4Fill,
+  RiNotification3Line,
+  RiArrowDownSLine,
+} from "react-icons/ri";
 
 function Header({ sidebarOpen, setSidebarOpen }) {
-  const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [notificationsCount] = useState(3);
 
   return (
-    <header className="sticky top-0 bg-white dark:bg-[#182235] border-b border-slate-200 dark:border-slate-700 z-30">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 -mb-px">
-          {/* Header: Left side */}
-          <div className="flex">
-            {/* Hamburger button */}
-            <button
-              className="text-slate-500 hover:text-slate-600 lg:hidden"
-              aria-controls="sidebar"
-              aria-expanded={sidebarOpen}
-              onClick={(e) => {
-                e.stopPropagation();
-                setSidebarOpen(!sidebarOpen);
-              }}
-            >
-              <span className="sr-only">Open sidebar</span>
-              <RiMenu4Fill className="text-2xl" />
-            </button>
-          </div>
+    <>
+      {/* Navbar */}
+      <nav className="bg-[#0A2E43] text-white">
+        <div className="w-full mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex">
+              {/* Hamburger button */}
+              <button
+                className="text-slate-500 hover:text-slate-600 lg:hidden"
+                aria-controls="sidebar"
+                aria-expanded={sidebarOpen}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSidebarOpen(!sidebarOpen);
+                }}
+              >
+                <span className="sr-only">Open sidebar</span>
+                <RiMenu4Fill size={20} className="text-white" />
+              </button>
+            </div>
 
-          {/* Header: Right side */}
-          <div className="flex items-center space-x-3">
-           
-
-            {/*  Divider */}
-            {/* <hr className="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" /> */}
-            {/* <UserMenu align="right" /> */}
+            <div className="flex items-center">
+              <div className="relative mr-3">
+                <button className="text-white p-1 rounded-full hover:bg-indigo-600 relative">
+                  <RiNotification3Line size={20} />
+                  {notificationsCount > 0 && (
+                    <span className="absolute top-0 right-0 inline-flex items-center justify-center h-4 w-4 rounded-full bg-red-500 text-xs">
+                      {notificationsCount}
+                    </span>
+                  )}
+                </button>
+              </div>
+              <div className="flex items-center">
+                <img
+                  className="h-8 w-8 rounded-full object-cover"
+                  src="/api/placeholder/32/32"
+                  alt="Profile"
+                />
+                <span className="hidden lg:block">Rhythmic Rhythm</span>
+                <RiArrowDownSLine size={16} className="ml-1" />
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </nav>
+    </>
   );
 }
 

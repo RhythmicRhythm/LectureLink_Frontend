@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../partials/Sidebar";
 import Header from "../partials/Header";
 import DashboardCard07 from "../partials/dashboard/DashboardCard07";
-import Info from "../partials/dashboard/Info";
+// import Info from "../partials/dashboard/Info";
 import useRedirectLoggedOutUser from "../customHook/useRedirectLoggedOutUser";
 
 function Dashboard() {
@@ -25,7 +25,7 @@ function Dashboard() {
             {/* Cards */}
             <div className="">
               {/* Table (Top Channels) */}
-              <Info />
+              {/* <Info /> */}
               <div className="grid grid-cols-12 gap-10">
                 <DashboardCard07 />
               </div>
