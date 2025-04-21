@@ -18,12 +18,12 @@ export const authApi = createApi({
         method: "POST",
         body: formValues,
       }),
-      transformResponse: (response) => {
+      transformResponse: (res) => {
         toastSuccess("Signup successful!");
-        return response;
+        return res;
       },
-      transformErrorResponse: (response) => {
-        toastError(response.data.message);
+      transformErrorResponse: (res) => {
+        toastError(res.data.message);
       },
     }),
     signin: builder.mutation({
@@ -36,8 +36,8 @@ export const authApi = createApi({
         toastSuccess("Signin successful!");
         return res;
       },
-      transformErrorResponse: (response) => {
-        toastError(response.data.message);
+      transformErrorResponse: (res) => {
+        toastError(res.data.message);
       },
     }),
     signout: builder.mutation({

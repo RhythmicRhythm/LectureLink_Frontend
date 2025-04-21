@@ -124,7 +124,8 @@ const Signup = () => {
               </div>
 
               <div className="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
-                <button disabled={loading} className="mybtn-primary">
+                   {/* SUBMIT BUTTON */}
+                <button type="submit" disabled={loading} className="mybtn-primary">
                   {loading && <ImSpinner10 className="animate-spin" />}
                   <span>{loading ? "Loading..." : "Sign Up"}</span>
                 </button>

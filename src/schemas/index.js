@@ -19,10 +19,9 @@ export const signupSchema = yup.object().shape({
     .oneOf([yup.ref("password"), null], "Passwords must match")
     .required("Required"),
 });
-
 export const signinSchema = yup.object().shape({
   email: yup.string().email("Please enter a valid email").required("Required"),
-  password: yup.string().min(8).required("Required"),
+  password: yup.string().min(5).required("Required"),
 });
 export const forgotSchema = yup.object().shape({
   email: yup.string().email("Please enter a valid email").required("Required"),
@@ -33,7 +32,6 @@ export const verifySchema = yup.object().shape({
 export const changeSchema = yup.object().shape({
   password: yup.string().min(5).required("Required"),
 });
-
 export const addblogSchema = yup.object().shape({
   title: yup.string().required("Title is required"),
   subtitle: yup.string().required("Subtitle is required"),
