@@ -11,6 +11,7 @@ import empty from "../images/emptyimg.png";
 import { FaUpload, FaDownload, FaRegShareSquare } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
 import moment from "moment";
+import { useGetCourseByIdQuery } from "../redux/apis/courseApi";
 
 const Course = () => {
   useRedirectLoggedOutUser("/signin");
@@ -20,8 +21,8 @@ const Course = () => {
 
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
-  const course = useSelector((state) => state.course.singlecourse);
-  const loading = useSelector((state) => state.course.loading);
+
+  const { data: course, isLoading: loading } = useGetCourseByIdQuery(courseId);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("overview");

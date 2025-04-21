@@ -4,9 +4,13 @@ import { Toaster } from "react-hot-toast";
 import axios from "axios";
 import "./css/style.css";
 
+import Signin from "./pages/auth/Signin";
+import Signup from "./pages/auth/SIgnup";
+
 // Import pages
 import Dashboard from "./pages/Dashboard";
-// import Course from "./pages/Course";
+import Courses from "./pages/Courses";
+import Course from "./pages/Course";
 // import History from "./pages/History";
 // import Verifycode from "./pages/auth/VerifyCode";
 // import AssignLecturers from "./pages/AssignLecturers";
@@ -15,8 +19,6 @@ import Dashboard from "./pages/Dashboard";
 // import NewCourse from "./pages/NewCourse";
 // import Uploadfile from "./pages/Uploadfile";
 
-import Signin from "./pages/auth/Signin";
-import Signup from "./pages/auth/SIgnup";
 // import Forgotpassword from "./pages/auth/Forgotpassword";
 // import Resetpassword from "./pages/auth/Resetpassword";
 
@@ -75,8 +77,10 @@ function App() {
 
         {/* DASHBOARD ROUTES  */}
         <Route exact path="/dashboard" element={<Dashboard />} />
-        {/* <Route exact path="/courses" element={<History />} />
+        <Route exact path="/courses" element={<Courses />} />
         <Route exact path="/courses/:id" element={<Course />} />
+        {/* 
+        
         <Route exact path="/uploadfile/:id" element={<Uploadfile />} />
         <Route exact path="/newcourse" element={<NewCourse />} />
         <Route exact path="/assignment/:id" element={<Assignment />} />

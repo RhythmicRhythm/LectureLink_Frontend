@@ -1,58 +1,18 @@
-import React from 'react';
-import { RiFilterLine, RiSearchLine } from 'react-icons/ri';
-import CourseCard from '../components/CourseCard';
+import React from "react";
+import { RiFilterLine, RiSearchLine } from "react-icons/ri";
+import CourseCard from "../components/CourseCard";
+import { useGetCoursesQuery } from "../redux/apis/courseApi";
 
 export default function CoursesSection() {
-  const courses = [
-    {
-      id: 1,
-      code: 'MUS101',
-      title: 'Introduction to Music Theory',
-      description: 'Understanding foundational concepts of music notation, rhythm, and harmony.',
-      professor: 'Dr. Johnson',
-      modules: 8,
-      students: 34,
-      bookmarked: true,
-      status: 'Active',
-      image: '/course-music-theory.jpg'
-    },
-    {
-      id: 2,
-      code: 'MUS202',
-      title: 'Music History: Baroque to Modern',
-      description: 'Exploring the evolution of Western art music from the Baroque period to contemporary styles.',
-      professor: 'Prof. Garcia',
-      modules: 12,
-      students: 28,
-      bookmarked: false,
-      status: 'Active',
-      image: '/course-music-history.jpg'
-    },
-    {
-      id: 3,
-      code: 'MUS207',
-      title: 'Jazz Improvisation and Performance',
-      description: 'Developing skills for jazz improvisation, performance techniques, and ensemble playing.',
-      professor: 'Prof. Wilson',
-      modules: 10,
-      students: 22,
-      bookmarked: false,
-      status: 'Active',
-      image: '/course-jazz.jpg'
-    },
-    {
-      id: 4,
-      code: 'MUS401',
-      title: 'Digital Music Production',
-      description: 'Creating and producing music using digital tools and audio engineering principles.',
-      professor: 'Dr. Kim',
-      modules: 14,
-      students: 19,
-      bookmarked: false,
-      status: 'Active',
-      image: '/course-production.jpg'
-    }
-  ];
+  const { data: courses, isLoading: loading } = useGetCoursesQuery();
+
+  if (loading) {
+    return (
+     <h1 className="">
+        Loading courses... <span className="animate-pulse">...</span>
+     </h1>
+    );
+  }
 
   return (
     <div className="mb-6">
@@ -69,12 +29,13 @@ export default function CoursesSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {courses.map((course) => (
-          <CourseCard 
-            key={course.id}
-            code={course.code}
-            title={course.title}
-            description={course.description}
+        {courses?.map((course) => (
+          <CourseCard
+            key={course._id}
+            id={course._id} 
+            code={course.course_code}
+            title={course.course_title}
+            description={course.course_description}
             professor={course.professor}
             modules={course.modules}
             students={course.students}

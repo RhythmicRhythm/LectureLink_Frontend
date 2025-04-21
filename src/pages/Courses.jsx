@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-
 import Sidebar from "../partials/Sidebar";
 import Header from "../partials/Header";
 import Card2 from "../partials/dashboard/Card2";
-import Card3 from "../partials/dashboard/Card3";
 import useRedirectLoggedOutUser from "../customHook/useRedirectLoggedOutUser";
 
-const History = () => {
+const Courses = () => {
   useRedirectLoggedOutUser("/signin");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
@@ -29,4 +27,4 @@ const History = () => {
   );
 };
 
-export default History;
+export default Courses;

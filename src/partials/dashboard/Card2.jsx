@@ -8,12 +8,17 @@ import { Link } from "react-router-dom";
 import empty from "../../images/emptyimg.png";
 import CourseListSkeleton from "../../components/common/skeletons/CourseListSkeleton";
 import { PiPlusCircleBold } from "react-icons/pi";
+import { useGetRegisteredCoursesQuery } from "../../redux/apis/courseApi";
+
 
 const Card2 = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
   const courses = useSelector((state) => state.course.courses);
   const loading = useSelector((state) => state.course.loading);
+
+  const { data, isLoading } = useGetRegisteredCoursesQuery();
+  console.log(data)
 
   useEffect(() => {
     if (user) {
